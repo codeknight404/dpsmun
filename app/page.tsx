@@ -235,7 +235,7 @@ export default function Home(): JSX.Element {
       delegates: 15,
       agenda: 'Addressing the implications of emerging technologies on international peace and security.',
       chairpersons: ['Ms. Anya Sharma', 'Mr. Rohan Gupta'],
-      rulesPdf: '/rules/UNSC_ROP.pdf',
+      rulesPdf: '/Rules/UNSC_ROP.pdf',
       type: 'International',
     },
     {
