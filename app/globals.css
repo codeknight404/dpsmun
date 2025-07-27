@@ -120,3 +120,51 @@
     @apply bg-background text-foreground;
   }
 }
+
+.gallery-parallax-section {
+  width: 100%;
+  background: #fafafa;
+  padding: 60px 0;
+}
+
+.gallery-row {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.row-track {
+  display: flex;
+  width: calc(200%); /* to repeat images */
+  animation: scroll linear infinite;
+}
+
+.tile {
+  flex: 0 0 200px;
+  margin-right: 16px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.tile:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* different speeds via animation-duration */
+.row-0 .row-track { animation-duration: 25s; }
+.row-1 .row-track { animation-duration: 30s; }
+.row-2 .row-track { animation-duration: 35s; }
+
+.row-paused .row-track {
+  animation-play-state: paused !important;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

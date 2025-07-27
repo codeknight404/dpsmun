@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import AuthNavButtons from '@/app/components/AuthNavButtons';
 import React, { useState, useEffect, JSX } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button'; // Assuming this path is correct for your Button component
@@ -387,7 +386,7 @@ export default function Home(): JSX.Element {
 
           {/* Desktop Auth Buttons: Use the AuthNavButtons component */}
           <div className="hidden md:flex">
-            <AuthNavButtons />
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -418,7 +417,7 @@ export default function Home(): JSX.Element {
                 ))}
                 <div className="pt-4 border-t border-gray-200 space-y-2">
                   {/* Mobile Auth Buttons: Use AuthNavButtons here too */}
-                  <AuthNavButtons />
+
                 </div>
               </div>
             </motion.div>
@@ -651,33 +650,30 @@ export default function Home(): JSX.Element {
             <Button
               variant={activeCommitteeType === 'All' ? 'default' : 'outline'}
               onClick={() => setActiveCommitteeType('All')}
-              className={`${
-                activeCommitteeType === 'All'
+              className={`${activeCommitteeType === 'All'
                   ? 'bg-gradient-to-r from-[#1A522A] to-[#2E8B57] text-white'
                   : 'border-[#1A522A] text-[#1A522A] hover:bg-[#D6EEF8]'
-              }`}
+                }`}
             >
               All Committees
             </Button>
             <Button
               variant={activeCommitteeType === 'International' ? 'default' : 'outline'}
               onClick={() => setActiveCommitteeType('International')}
-              className={`${
-                activeCommitteeType === 'International'
+              className={`${activeCommitteeType === 'International'
                   ? 'bg-gradient-to-r from-[#1A522A] to-[#2E8B57] text-white'
                   : 'border-[#1A522A] text-[#1A522A] hover:bg-[#D6EEF8]'
-              }`}
+                }`}
             >
               International
             </Button>
             <Button
               variant={activeCommitteeType === 'National' ? 'default' : 'outline'}
               onClick={() => setActiveCommitteeType('National')}
-              className={`${
-                activeCommitteeType === 'National'
+              className={`${activeCommitteeType === 'National'
                   ? 'bg-gradient-to-r from-[#1A522A] to-[#2E8B57] text-white'
                   : 'border-[#1A522A] text-[#1A522A] hover:bg-[#D6EEF8]'
-              }`}
+                }`}
             >
               National
             </Button>
@@ -692,7 +688,7 @@ export default function Home(): JSX.Element {
               animate="visible"
               // variants={staggerChildren} // Apply stagger to the grid container
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              // Instead of staggerChildren on the parent, we'll apply individual animations with a delay
+            // Instead of staggerChildren on the parent, we'll apply individual animations with a delay
             >
               {filteredCommittees.map((committee, index) => (
                 <motion.div
@@ -709,13 +705,12 @@ export default function Home(): JSX.Element {
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-bold text-[#1A522A]">{committee.short}</h3>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        committee.level === 'Beginner'
+                      className={`px-3 py-1 rounded-full text-xs font-semibold ${committee.level === 'Beginner'
                           ? 'bg-green-100 text-green-800'
                           : committee.level === 'Intermediate'
                             ? 'bg-yellow-100 text-yellow-800'
                             : 'bg-red-100 text-red-800'
-                      }`}
+                        }`}
                     >
                       {committee.level}
                     </span>
@@ -733,6 +728,10 @@ export default function Home(): JSX.Element {
             </motion.div>
           </AnimatePresence>
         </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section id="Gallery" className="py-20 backdrop-filter backdrop-blur-md">
       </section>
 
       {/* Timeline Section */}
@@ -764,13 +763,12 @@ export default function Home(): JSX.Element {
                   )}
                 </div>
                 <div
-                  className={`flex-1 p-6 rounded-xl ${
-                    item.status === 'completed'
+                  className={`flex-1 p-6 rounded-xl ${item.status === 'completed'
                       ? 'bg-green-50/70 border-l-4 border-green-500 backdrop-filter backdrop-blur-sm'
                       : item.status === 'current'
                         ? 'bg-yellow-50/70 border-l-4 border-yellow-500 backdrop-filter backdrop-blur-sm'
                         : 'bg-gray-50/70 border-l-4 border-gray-300 backdrop-filter backdrop-blur-sm'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -778,13 +776,12 @@ export default function Home(): JSX.Element {
                       <p className="text-sm text-gray-600">{item.date}</p>
                     </div>
                     <div
-                      className={`w-3 h-3 rounded-full ${
-                        item.status === 'completed'
+                      className={`w-3 h-3 rounded-full ${item.status === 'completed'
                           ? 'bg-green-500'
                           : item.status === 'current'
                             ? 'bg-yellow-500'
                             : 'bg-gray-300'
-                      }`}
+                        }`}
                     ></div>
                   </div>
                 </div>
